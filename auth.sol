@@ -11,8 +11,7 @@ contract Auth {
 
     mapping(address => UserDetail) user;
 
-    // user registration function
-    function register(
+    function signup(
         address _address,
         string memory _name,
         string memory _password,
@@ -27,7 +26,6 @@ contract Auth {
         return true;
     }
 
-    // user login function
     function login(address _address, string memory _password)
         public
         returns (bool)
@@ -43,12 +41,10 @@ contract Auth {
         }
     }
 
-    // check the user logged In or not
     function checkIsUserLogged(address _address) public view returns (bool) {
         return (user[_address].isUserLoggedIn);
     }
 
-    // logout the user
     function logout(address _address) public {
         user[_address].isUserLoggedIn = false;
     }
